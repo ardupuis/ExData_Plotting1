@@ -8,7 +8,7 @@ data<-read.csv("household_power_consumption.txt",header=TRUE,as.is=TRUE,sep=";",
 data$NewDate<-strptime(paste(data$Date,data$Time),"%d/%m/%Y %T")
 
 ## Open PNG device to receive plot
-png(filename="plot3.png",width=504,height=504,units="px")
+png(filename="plot3.png",width=480,height=480,units="px")
 
 ## Plot data according to request
 with(data,{
