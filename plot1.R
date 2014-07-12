@@ -1,8 +1,6 @@
-## Used Text Editor to select data for the two dates in question: 2007-02-01 and 2007-02-02
-## because I don't know how to read in selective data...yet.
-
-## Read the already filtered data file into dataset called data
-data<-read.csv("household_power_consumption.txt",header=TRUE,as.is=TRUE,sep=";",na.string="?")
+## Read the file into dataset called data
+data <- read.table(pipe('grep "^[1-2]/2/2007" "household_power_consumption2.txt"'),header=TRUE,as.is=TRUE,sep=";",na.string="?")
+colnames(data) <-names(read.table('household_power_consumption2.txt',header=TRUE,as.is=TRUE,sep=";",na.string="?",nrows=1))
 
 ## Convert Date and Time String to POSIXlt Date/Time class.
 data$NewDate<-strptime(paste(data$Date,data$Time),"%d/%m/%Y %T")
